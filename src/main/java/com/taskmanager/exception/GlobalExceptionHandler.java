@@ -27,9 +27,7 @@ public class GlobalExceptionHandler {
 
         Map<String, String> errors = new HashMap<>();
 
-        ex.getBindingResult().getFieldErrors().forEach(err ->
-                errors.put(err.getField(), err.getDefaultMessage())
-        );
+        ex.getBindingResult().getFieldErrors().forEach(err -> errors.put(err.getField(), err.getDefaultMessage()));
 
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
@@ -39,7 +37,8 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, String>> handleGeneral(Exception ex) {
 
         Map<String, String> error = new HashMap<>();
-        error.put("message", "Something went wrong");
+        error.put("message", ex.getMessage());
+        error.put("error", ex.getClass().getSimpleName());
 
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }

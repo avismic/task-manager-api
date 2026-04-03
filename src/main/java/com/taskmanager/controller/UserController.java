@@ -1,5 +1,5 @@
 package com.taskmanager.controller;
-
+import com.taskmanager.dto.LoginResponseDTO;
 import com.taskmanager.dto.LoginRequestDTO;
 import com.taskmanager.dto.UserRequestDTO;
 import com.taskmanager.dto.UserResponseDTO;
@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public UserResponseDTO loginUser(@Valid @RequestBody LoginRequestDTO request) {
+    public LoginResponseDTO loginUser(@Valid @RequestBody LoginRequestDTO request) {
         return userService.loginUser(request);
     }
 
