@@ -1,6 +1,5 @@
 package com.taskmanager.entity;
 
-import com.taskmanager.entity.TaskStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
