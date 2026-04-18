@@ -16,6 +16,8 @@ export class AuthService {
       this.http.post<any>(`${this.baseUrl}/login`, data).subscribe({
         next: (res) => {
           localStorage.setItem('token', res.token);
+          localStorage.setItem('name', res.name);
+          localStorage.setItem('email', res.email);
           observer.next(res);
           observer.complete();
         },
@@ -24,7 +26,11 @@ export class AuthService {
     });
   }
 
-  register(data: any): Observable<any> {
+  // register(data: any): Observable<any> {
+  //   return this.http.post(`${this.baseUrl}/register`, data);
+  // }
+
+  register(data: { name: string; email: string; password: string }) {
     return this.http.post(`${this.baseUrl}/register`, data);
   }
 }

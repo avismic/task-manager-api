@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TaskService } from '../../../core/services/task.service';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-create',
@@ -24,13 +25,8 @@ export class Create {
     };
 
     this.taskService.createTask(data).subscribe({
-      next: (res) => {
-        console.log('Task created:', res);
-        this.router.navigate(['/tasks']);
-      },
-      error: (err) => {
-        console.error('Error creating task:', err);
-      },
+      next: () => this.router.navigate(['/tasks']),
+      error: (err) => console.error(err),
     });
   }
 }

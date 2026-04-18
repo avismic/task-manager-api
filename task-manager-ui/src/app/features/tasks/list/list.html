@@ -1,4 +1,28 @@
+<div
+  style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px"
+>
+  <h2>DidIt</h2>
+
+  <div>
+    <span style="margin-right: 12px">
+      {{ userName }}
+    </span>
+    <button (click)="logout()">Logout</button>
+  </div>
+</div>
+<button style="margin-bottom: 16px" (click)="goToCreate()">Create Task</button>
 <h2>My Tasks</h2>
+
+<div>
+  <input type="text" placeholder="Search..." [(ngModel)]="search" (input)="onFilterChange()" />
+
+  <select [(ngModel)]="status" (change)="onFilterChange()">
+    <option value="">All</option>
+    <option value="TODO">TODO</option>
+    <option value="IN_PROGRESS">IN_PROGRESS</option>
+    <option value="DONE">DONE</option>
+  </select>
+</div>
 
 <div *ngIf="tasks$ | async as res">
   <div *ngIf="res.content.length > 0; else noTasks">
@@ -13,6 +37,15 @@
         </button>
       </li>
     </ul>
+  </div>
+  <div>
+    <button
+      *ngFor="let p of [].constructor(res.totalPages); let i = index"
+      (click)="onPageChange(i)"
+      [style.fontWeight]="i === page ? 'bold' : 'normal'"
+    >
+      {{ i + 1 }}
+    </button>
   </div>
 </div>
 

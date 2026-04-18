@@ -3,6 +3,7 @@ import { TaskService } from '../../../core/services/task.service';
 import { Task } from '../../../models/task.model';
 import { Page } from '../../../models/page.model';
 import { Observable, switchMap, Subject, BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -12,11 +13,36 @@ import { Observable, switchMap, Subject, BehaviorSubject } from 'rxjs';
 })
 export class List {
   private refresh$ = new BehaviorSubject<void>(undefined);
-  tasks$ = this.refresh$.pipe(switchMap(() => this.taskService.getTasks({ page: 0, size: 10 })));
+  page: number = 0;
+  userName: string | null = null;
+  tasks$ = this.refresh$.pipe(
+    switchMap(() => {
+      const params: any = {
+        page: this.page,
+        size: 10,
+      };
+
+      if (this.search?.trim()) {
+        params.search = this.search.trim();
+      }
+
+      if (this.status) {
+        params.status = this.status;
+      }
+
+      return this.taskService.getTasks(params);
+    }),
+  );
   confirmDeleteId: number | null = null;
+  search: string = '';
+  status: string = '';
 
-  constructor(private taskService: TaskService) {}
-
+  constructor(
+    private taskService: TaskService,
+    private router: Router,
+  ) {
+    this.userName = localStorage.getItem('name');
+  }
   onDeleteClick(id: number) {
     if (this.confirmDeleteId === id) {
       this.taskService.deleteTask(id).subscribe({
@@ -46,5 +72,23 @@ export class List {
         console.error('Toggle error:', err);
       },
     });
+  }
+
+  onFilterChange() {
+    this.refresh$.next();
+  }
+
+  onPageChange(page: number) {
+    this.page = page;
+    this.refresh$.next();
+  }
+
+  goToCreate() {
+    this.router.navigate(['/tasks/create']);
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/auth/login']);
   }
 }

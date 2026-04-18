@@ -2,7 +2,6 @@
   <h2>Login</h2>
 
   <form (ngSubmit)="onLogin()">
-    
     <div>
       <label>Email:</label>
       <input type="email" [(ngModel)]="email" name="email" required />
@@ -14,6 +13,10 @@
     </div>
 
     <button type="submit">Login</button>
-
   </form>
+
+  <p style="margin-top: 12px">
+    New user?
+    <a (click)="goToRegister()" style="cursor: pointer; color: blue"> Register here </a>
+  </p>
 </div>

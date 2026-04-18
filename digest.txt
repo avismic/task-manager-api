@@ -1,61 +1,62 @@
 Directory structure:
-└── task-manager-api/
-    ├── README.md
-    ├── mvnw
-    ├── mvnw.cmd
-    ├── pom.xml
-    ├── src/
-    │   ├── main/
-    │   │   ├── java/
-    │   │   │   └── com/
-    │   │   │       └── taskmanager/
-    │   │   │           ├── TaskmanagerApplication.java
-    │   │   │           ├── config/
-    │   │   │           │   ├── SecurityConfig.java
-    │   │   │           │   └── SwaggerConfig.java
-    │   │   │           ├── controller/
-    │   │   │           │   ├── TaskController.java
-    │   │   │           │   └── UserController.java
-    │   │   │           ├── dto/
-    │   │   │           │   ├── LoginRequestDTO.java
-    │   │   │           │   ├── LoginResponseDTO.java
-    │   │   │           │   ├── TaskRequestDTO.java
-    │   │   │           │   ├── TaskResponseDTO.java
-    │   │   │           │   ├── UserRequestDTO.java
-    │   │   │           │   └── UserResponseDTO.java
-    │   │   │           ├── entity/
-    │   │   │           │   ├── Task.java
-    │   │   │           │   ├── TaskStatus.java
-    │   │   │           │   └── User.java
-    │   │   │           ├── exception/
-    │   │   │           │   ├── ErrorResponse.java
-    │   │   │           │   ├── GlobalExceptionHandler.java
-    │   │   │           │   ├── ResourceNotFoundException.java
-    │   │   │           │   └── UnauthorizedException.java
-    │   │   │           ├── repository/
-    │   │   │           │   ├── TaskRepository.java
-    │   │   │           │   └── UserRepository.java
-    │   │   │           ├── security/
-    │   │   │           │   ├── CustomUserDetails.java
-    │   │   │           │   ├── CustomUserDetailsService.java
-    │   │   │           │   ├── JwtAuthFilter.java
-    │   │   │           │   └── JwtUtil.java
-    │   │   │           └── service/
-    │   │   │               ├── TaskService.java
-    │   │   │               └── UserService.java
-    │   │   └── resources/
-    │   │       └── application.properties
-    │   └── test/
-    │       └── java/
-    │           └── com/
-    │               └── taskmanager/
-    │                   └── TaskmanagerApplicationTests.java
-    └── .mvn/
-        └── wrapper/
-            └── maven-wrapper.properties
+└── task-manager/
+    └── task-manager-api/
+        ├── README.md
+        ├── mvnw
+        ├── mvnw.cmd
+        ├── pom.xml
+        ├── src/
+        │   ├── main/
+        │   │   ├── java/
+        │   │   │   └── com/
+        │   │   │       └── taskmanager/
+        │   │   │           ├── TaskmanagerApplication.java
+        │   │   │           ├── config/
+        │   │   │           │   ├── SecurityConfig.java
+        │   │   │           │   └── SwaggerConfig.java
+        │   │   │           ├── controller/
+        │   │   │           │   ├── TaskController.java
+        │   │   │           │   └── UserController.java
+        │   │   │           ├── dto/
+        │   │   │           │   ├── LoginRequestDTO.java
+        │   │   │           │   ├── LoginResponseDTO.java
+        │   │   │           │   ├── TaskRequestDTO.java
+        │   │   │           │   ├── TaskResponseDTO.java
+        │   │   │           │   ├── UserRequestDTO.java
+        │   │   │           │   └── UserResponseDTO.java
+        │   │   │           ├── entity/
+        │   │   │           │   ├── Task.java
+        │   │   │           │   ├── TaskStatus.java
+        │   │   │           │   └── User.java
+        │   │   │           ├── exception/
+        │   │   │           │   ├── ErrorResponse.java
+        │   │   │           │   ├── GlobalExceptionHandler.java
+        │   │   │           │   ├── ResourceNotFoundException.java
+        │   │   │           │   └── UnauthorizedException.java
+        │   │   │           ├── repository/
+        │   │   │           │   ├── TaskRepository.java
+        │   │   │           │   └── UserRepository.java
+        │   │   │           ├── security/
+        │   │   │           │   ├── CustomUserDetails.java
+        │   │   │           │   ├── CustomUserDetailsService.java
+        │   │   │           │   ├── JwtAuthFilter.java
+        │   │   │           │   └── JwtUtil.java
+        │   │   │           └── service/
+        │   │   │               ├── TaskService.java
+        │   │   │               └── UserService.java
+        │   │   └── resources/
+        │   │       └── application.properties
+        │   └── test/
+        │       └── java/
+        │           └── com/
+        │               └── taskmanager/
+        │                   └── TaskmanagerApplicationTests.java
+        └── .mvn/
+            └── wrapper/
+                └── maven-wrapper.properties
 
 ================================================
-FILE: README.md
+FILE: task-manager-api/README.md
 ================================================
 # Task Manager API (Spring Boot + AWS)
 
@@ -324,7 +325,7 @@ It is designed to reflect a real-world backend system rather than a basic demo p
 
 
 ================================================
-FILE: mvnw
+FILE: task-manager-api/mvnw
 ================================================
 #!/bin/sh
 # ----------------------------------------------------------------------------
@@ -625,7 +626,7 @@ exec_maven "$@"
 
 
 ================================================
-FILE: mvnw.cmd
+FILE: task-manager-api/mvnw.cmd
 ================================================
 <# : batch portion
 @REM ----------------------------------------------------------------------------
@@ -820,7 +821,7 @@ Write-Output "MVN_CMD=$MAVEN_HOME/bin/$MVN_CMD"
 
 
 ================================================
-FILE: pom.xml
+FILE: task-manager-api/pom.xml
 ================================================
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -985,7 +986,7 @@ FILE: pom.xml
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/TaskmanagerApplication.java
+FILE: task-manager-api/src/main/java/com/taskmanager/TaskmanagerApplication.java
 ================================================
 package com.taskmanager;
 
@@ -1004,7 +1005,7 @@ public class TaskmanagerApplication {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/config/SecurityConfig.java
+FILE: task-manager-api/src/main/java/com/taskmanager/config/SecurityConfig.java
 ================================================
 package com.taskmanager.config;
 
@@ -1018,65 +1019,47 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import java.util.List;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-        private final JwtAuthFilter jwtAuthFilter;
+    private final JwtAuthFilter jwtAuthFilter;
 
-        @Bean
-        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-                http
-                                .cors().and()
-                                .csrf(csrf -> csrf
-                                                .ignoringRequestMatchers("/h2-console/**")
-                                                .disable())
-                                .headers(headers -> headers
-                                                .frameOptions(frame -> frame.disable()))
-                                .sessionManagement(session -> session
-                                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                                .authorizeHttpRequests(auth -> auth
-                                                .requestMatchers(
-                                                                "/api/users/register",
-                                                                "/api/users/login",
-                                                                "/swagger-ui/**",
-                                                                "/v3/api-docs/**",
-                                                                "/h2-console/**")
-                                                .permitAll()
-                                                .anyRequest().authenticated());
+        http
+                .csrf(csrf -> csrf
+                        .ignoringRequestMatchers("/h2-console/**")
+                        .disable())
+                .headers(headers -> headers
+                        .frameOptions(frame -> frame.disable()))
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(
+                                "/api/users/register",
+                                "/api/users/login",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**",
+                                "/h2-console/**")
+                        .permitAll()
+                        .anyRequest().authenticated());
 
-                http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-                return http.build();
-        }
+        http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
+    }
 
-        @Bean
-        public PasswordEncoder passwordEncoder() {
-                return new BCryptPasswordEncoder();
-        }
-
-        @Bean
-        public CorsConfigurationSource corsConfigurationSource() {
-                CorsConfiguration configuration = new CorsConfiguration();
-                configuration.setAllowedOrigins(List.of("http://localhost:4200"));
-                configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
-                configuration.setAllowedHeaders(List.of("*"));
-                configuration.setAllowCredentials(true);
-
-                UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-                source.registerCorsConfiguration("/**", configuration);
-                return source;
-        }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/config/SwaggerConfig.java
+FILE: task-manager-api/src/main/java/com/taskmanager/config/SwaggerConfig.java
 ================================================
 package com.taskmanager.config;
 
@@ -1115,7 +1098,7 @@ public class SwaggerConfig {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/controller/TaskController.java
+FILE: task-manager-api/src/main/java/com/taskmanager/controller/TaskController.java
 ================================================
 package com.taskmanager.controller;
 
@@ -1193,7 +1176,7 @@ public class TaskController {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/controller/UserController.java
+FILE: task-manager-api/src/main/java/com/taskmanager/controller/UserController.java
 ================================================
 package com.taskmanager.controller;
 
@@ -1237,7 +1220,7 @@ public class UserController {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/dto/LoginRequestDTO.java
+FILE: task-manager-api/src/main/java/com/taskmanager/dto/LoginRequestDTO.java
 ================================================
 package com.taskmanager.dto;
 
@@ -1260,7 +1243,7 @@ public class LoginRequestDTO {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/dto/LoginResponseDTO.java
+FILE: task-manager-api/src/main/java/com/taskmanager/dto/LoginResponseDTO.java
 ================================================
 package com.taskmanager.dto;
 
@@ -1280,7 +1263,7 @@ public class LoginResponseDTO {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/dto/TaskRequestDTO.java
+FILE: task-manager-api/src/main/java/com/taskmanager/dto/TaskRequestDTO.java
 ================================================
 package com.taskmanager.dto;
 
@@ -1298,7 +1281,7 @@ public class TaskRequestDTO {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/dto/TaskResponseDTO.java
+FILE: task-manager-api/src/main/java/com/taskmanager/dto/TaskResponseDTO.java
 ================================================
 package com.taskmanager.dto;
 
@@ -1318,7 +1301,7 @@ public class TaskResponseDTO {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/dto/UserRequestDTO.java
+FILE: task-manager-api/src/main/java/com/taskmanager/dto/UserRequestDTO.java
 ================================================
 package com.taskmanager.dto;
 
@@ -1342,7 +1325,7 @@ public class UserRequestDTO {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/dto/UserResponseDTO.java
+FILE: task-manager-api/src/main/java/com/taskmanager/dto/UserResponseDTO.java
 ================================================
 package com.taskmanager.dto;
 
@@ -1365,7 +1348,7 @@ public class UserResponseDTO {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/entity/Task.java
+FILE: task-manager-api/src/main/java/com/taskmanager/entity/Task.java
 ================================================
 package com.taskmanager.entity;
 
@@ -1404,7 +1387,7 @@ public class Task {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/entity/TaskStatus.java
+FILE: task-manager-api/src/main/java/com/taskmanager/entity/TaskStatus.java
 ================================================
 package com.taskmanager.entity;
 
@@ -1416,7 +1399,7 @@ public enum TaskStatus {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/entity/User.java
+FILE: task-manager-api/src/main/java/com/taskmanager/entity/User.java
 ================================================
 package com.taskmanager.entity;
 
@@ -1448,7 +1431,7 @@ public class User {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/exception/ErrorResponse.java
+FILE: task-manager-api/src/main/java/com/taskmanager/exception/ErrorResponse.java
 ================================================
 package com.taskmanager.exception;
 
@@ -1470,7 +1453,7 @@ public class ErrorResponse {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/exception/GlobalExceptionHandler.java
+FILE: task-manager-api/src/main/java/com/taskmanager/exception/GlobalExceptionHandler.java
 ================================================
 package com.taskmanager.exception;
 
@@ -1580,7 +1563,7 @@ public class GlobalExceptionHandler {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/exception/ResourceNotFoundException.java
+FILE: task-manager-api/src/main/java/com/taskmanager/exception/ResourceNotFoundException.java
 ================================================
 package com.taskmanager.exception;
 
@@ -1593,7 +1576,7 @@ public class ResourceNotFoundException extends RuntimeException {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/exception/UnauthorizedException.java
+FILE: task-manager-api/src/main/java/com/taskmanager/exception/UnauthorizedException.java
 ================================================
 package com.taskmanager.exception;
 
@@ -1606,7 +1589,7 @@ public class UnauthorizedException extends RuntimeException {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/repository/TaskRepository.java
+FILE: task-manager-api/src/main/java/com/taskmanager/repository/TaskRepository.java
 ================================================
 package com.taskmanager.repository;
 
@@ -1648,7 +1631,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/repository/UserRepository.java
+FILE: task-manager-api/src/main/java/com/taskmanager/repository/UserRepository.java
 ================================================
 package com.taskmanager.repository;
 
@@ -1664,7 +1647,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/security/CustomUserDetails.java
+FILE: task-manager-api/src/main/java/com/taskmanager/security/CustomUserDetails.java
 ================================================
 package com.taskmanager.security;
 
@@ -1725,7 +1708,7 @@ public class CustomUserDetails implements UserDetails {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/security/CustomUserDetailsService.java
+FILE: task-manager-api/src/main/java/com/taskmanager/security/CustomUserDetailsService.java
 ================================================
 package com.taskmanager.security;
 
@@ -1755,7 +1738,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/security/JwtAuthFilter.java
+FILE: task-manager-api/src/main/java/com/taskmanager/security/JwtAuthFilter.java
 ================================================
 package com.taskmanager.security;
 
@@ -1799,19 +1782,12 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
                 var userDetails = userDetailsService.loadUserByUsername(email);
 
-                if (jwtUtil.isTokenValid(token, userDetails)) {
+                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                        userDetails,
+                        null,
+                        userDetails.getAuthorities());
 
-                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                            userDetails,
-                            null,
-                            userDetails.getAuthorities());
-
-                    authToken.setDetails(
-                            new org.springframework.security.web.authentication.WebAuthenticationDetailsSource()
-                                    .buildDetails(request));
-
-                    SecurityContextHolder.getContext().setAuthentication(authToken);
-                }
+                SecurityContextHolder.getContext().setAuthentication(authToken);
             }
 
         } catch (Exception e) {
@@ -1824,7 +1800,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/security/JwtUtil.java
+FILE: task-manager-api/src/main/java/com/taskmanager/security/JwtUtil.java
 ================================================
 package com.taskmanager.security;
 
@@ -1863,44 +1839,17 @@ public class JwtUtil {
                 .getBody()
                 .getSubject();
     }
-
-    public boolean isTokenValid(String token, org.springframework.security.core.userdetails.UserDetails userDetails) {
-        final String email = extractEmail(token);
-        return (email.equals(userDetails.getUsername()) && !isTokenExpired(token));
-    }
-
-    public boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new java.util.Date());
-    }
-
-    public java.util.Date extractExpiration(String token) {
-        return extractClaim(token, io.jsonwebtoken.Claims::getExpiration);
-    }
-
-    public <T> T extractClaim(String token, java.util.function.Function<io.jsonwebtoken.Claims, T> claimsResolver) {
-        final io.jsonwebtoken.Claims claims = extractAllClaims(token);
-        return claimsResolver.apply(claims);
-    }
-
-    public io.jsonwebtoken.Claims extractAllClaims(String token) {
-        return Jwts.parserBuilder()
-                .setSigningKey(getSigningKey())
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
-    }
-
 }
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/service/TaskService.java
+FILE: task-manager-api/src/main/java/com/taskmanager/service/TaskService.java
 ================================================
 Error reading file with 'cp1252': 'charmap' codec can't decode byte 0x8d in position 4053: character maps to <undefined>
 
 
 ================================================
-FILE: src/main/java/com/taskmanager/service/UserService.java
+FILE: task-manager-api/src/main/java/com/taskmanager/service/UserService.java
 ================================================
 package com.taskmanager.service;
 
@@ -1963,7 +1912,7 @@ public class UserService {
 
 
 ================================================
-FILE: src/main/resources/application.properties
+FILE: task-manager-api/src/main/resources/application.properties
 ================================================
 spring.application.name=taskmanager
 
@@ -1984,7 +1933,7 @@ server.port=9090
 
 
 ================================================
-FILE: src/test/java/com/taskmanager/TaskmanagerApplicationTests.java
+FILE: task-manager-api/src/test/java/com/taskmanager/TaskmanagerApplicationTests.java
 ================================================
 package com.taskmanager;
 
@@ -2003,7 +1952,7 @@ class TaskmanagerApplicationTests {
 
 
 ================================================
-FILE: .mvn/wrapper/maven-wrapper.properties
+FILE: task-manager-api/.mvn/wrapper/maven-wrapper.properties
 ================================================
 wrapperVersion=3.3.4
 distributionType=only-script

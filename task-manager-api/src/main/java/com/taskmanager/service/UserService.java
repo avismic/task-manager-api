@@ -40,7 +40,7 @@ public class UserService {
                 .build();
     }
 
-    public LoginResponseDTO loginUser(LoginRequestDTO request){
+    public LoginResponseDTO loginUser(LoginRequestDTO request) {
 
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid email or password"));
@@ -52,7 +52,10 @@ public class UserService {
         String token = jwtUtil.generateToken(user.getEmail());
 
         return LoginResponseDTO.builder()
-        .token(token)
-        .build();
+                .token(token)
+                .name(user.getName())
+                .email(user.getEmail())
+                .build();
+
     }
 }
