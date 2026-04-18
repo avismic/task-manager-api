@@ -35,4 +35,31 @@ public class JwtUtil {
                 .getBody()
                 .getSubject();
     }
+
+    public boolean isTokenValid(String token, org.springframework.security.core.userdetails.UserDetails userDetails) {
+        final String email = extractEmail(token);
+        return (email.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
+
+    public boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new java.util.Date());
+    }
+
+    public java.util.Date extractExpiration(String token) {
+        return extractClaim(token, io.jsonwebtoken.Claims::getExpiration);
+    }
+
+    public <T> T extractClaim(String token, java.util.function.Function<io.jsonwebtoken.Claims, T> claimsResolver) {
+        final io.jsonwebtoken.Claims claims = extractAllClaims(token);
+        return claimsResolver.apply(claims);
+    }
+
+    public io.jsonwebtoken.Claims extractAllClaims(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+    }
+
 }
