@@ -91,4 +91,8 @@ export class List {
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
   }
+
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
 }

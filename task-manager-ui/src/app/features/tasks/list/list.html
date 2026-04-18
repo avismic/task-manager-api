@@ -4,7 +4,10 @@
   <h2>DidIt</h2>
 
   <div>
-    <span style="margin-right: 12px">
+    <span
+      style="margin-right: 12px; cursor: pointer; text-decoration: underline"
+      (click)="goToProfile()"
+    >
       {{ userName }}
     </span>
     <button (click)="logout()">Logout</button>
