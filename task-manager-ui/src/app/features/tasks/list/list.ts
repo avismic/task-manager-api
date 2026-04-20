@@ -59,6 +59,20 @@ export class List {
   ) {
     this.userName = localStorage.getItem('name');
   }
+
+  updateUrl() {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        page: this.page,
+        search: this.search || null,
+        status: this.status || null,
+        sort: this.sort,
+      },
+      queryParamsHandling: 'merge',
+    });
+  }
+
   onDeleteClick(id: number) {
     if (this.confirmDeleteId === id) {
       this.deletingId = id;
@@ -98,11 +112,14 @@ export class List {
   }
 
   onFilterChange() {
+    this.page = 0;
+    this.updateUrl();
     this.refresh$.next();
   }
 
   onPageChange(page: number) {
     this.page = page;
+    this.updateUrl();
     this.refresh$.next();
   }
 
@@ -120,11 +137,18 @@ export class List {
   }
 
   goToEdit(id: number) {
-    this.router.navigate(['/tasks/edit', id]);
+    this.router.navigate(['/tasks/edit', id], {
+      queryParams: {
+        page: this.page,
+        search: this.search,
+        status: this.status,
+        sort: this.sort,
+      },
+    });
   }
-
   onSortChange() {
     this.page = 0; // reset to first page
+    this.updateUrl();
     this.refresh$.next();
   }
 

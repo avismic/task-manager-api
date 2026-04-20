@@ -4,6 +4,7 @@ import { TaskService } from '../../../core/services/task.service';
 import { Task } from '../../../models/task.model';
 import { switchMap, Observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.html',
@@ -42,7 +43,9 @@ export class Edit {
     this.taskService.updateTask(this.taskId, data).subscribe({
       next: () => {
         this.isLoading = false;
-        this.router.navigate(['/tasks']);
+        this.router.navigate(['/tasks'], {
+          queryParams: this.route.snapshot.queryParams,
+        });
       },
       error: () => {
         this.isLoading = false;
